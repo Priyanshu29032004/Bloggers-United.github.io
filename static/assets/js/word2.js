@@ -1,4 +1,4 @@
-var words = ['Website is not on maintainance', 'Cannot redirect to it!!!!', 'Sorry for the inconvenience', 'Till the time you can use,', 'Bloggers United !!!!!'],
+var words = ['Website is on maintainance', 'Cannot redirect to it!!!!', 'Sorry for the inconvenience', 'Till the time you can use,', 'Bloggers United !!!!!'],
     part,
     i = 0,
     offset = 0,
