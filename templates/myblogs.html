@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% block title %}
+my blogs
+{% endblock title %}
+
+{% block body %}
+<section style="background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8sxRNeQfGdokKjX1IuwHlnKEHG2XB5BGOEQ5TL51fUkl4vJffn863pGdI6pUOpj0n7Ms&usqp=CAU) center / cover no-repeat;">
+<div class="container">
+
+        <div class="row d-flex justify-content-center">
+
+            <div class="col-md-10">
+
+                <div class="row">
+                    <div class="col">
+                        <h1>Your Blogs:</h1>
+                    </div>
+
+
+
+                </div>
+                <hr size="5">
+                <hr size="4">
+
+
+
+
+
+{% for posts in posts %}
+
+        <div class="container py-3" data-aos="slide-right">
+<!--            data-aos="slide-right"-->
+
+  <!-- Card Start -->
+  <div class="card">
+    <div class="row ">
+
+      <div class="col-md-7 px-3">
+        <div class="card-block px-6">
+            <h4 class="card-title my-2 mx-2"><pre style="font-family:garamond,serif;font-size:45px;text-decoration: underline;">{{ posts.title }}</pre></h4>
+          <h5 class="card-title my-2 mx-2"><pre style="font-family:garamond,serif;font-size:30px;text-decoration: underline;">{{ posts.title_tag }}</pre></h5>
+            <p class="card-text my-2 mx-2" style = "font-family:georgia,garamond,serif;font-size:16px;font-style:italic;">
+            {{posts.body|striptags|truncatewords:"40"}}<a href="{{posts.slug}}">Read More</a>
+          </p>
+            <br>
+            <p class="card-text my-2 mx-2" style = "font-family:georgia,garamond,serif;font-size:16px;font-style:italic;">
+                <a role="button" href="{{posts.id}}">Edit</a>
+            </p>
+
+        </div>
+          <div class="row my-2 mx-2">
+                                            <div class="col">
+                                                <li><label>Author:</label></li>
+                                            </div>
+                                            <div class="col">
+                                                {{ posts.author }}
+                                            </div>
+                                            <div class="col">
+                                                <li><label>Posted on:</label></li>
+                                            </div>
+                                            <div class="col">
+                                                {{ posts.post_date }}
+                                            </div>
+                                        </div>
+          <div class="row my-2 mx-2">
+                                            <div class="col">
+                                                <li><label>Category:</label></li>
+                                            </div>
+                                            <div class="col">
+                                                {{ posts.category }}
+                                            </div>
+                                            <div class="col">
+                                                <li><label>Views:</label></li>
+                                            </div>
+                                            <div class="col">
+                                                {{ posts.views }}
+                                            </div>
+
+          </div>
+      </div>
+
+
+      <!-- Carousel start -->
+      <div class="col-md-5 my-3">
+        <div id="CarouselTest" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#CarouselTest" data-slide-to="0" class="active"></li>
+            <li data-target="#CarouselTest" data-slide-to="1"></li>
+            <li data-target="#CarouselTest" data-slide-to="2"></li>
+
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img class="d-block img-fluid" src="{{posts.image.url}}" alt="" >
+            </div>
+
+
+
+          </div>
+        </div>
+      </div>
+      <!-- End of carousel -->
+    </div>
+  </div>
+  <!-- End of card -->
+</div>
+
+{% endfor %}
+
+
+
+</div></div></div></div></section>
+{% endblock %}

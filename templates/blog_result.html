@@ -1,0 +1,358 @@
+{% extends 'base.html' %}
+{% block title %}
+blog_result
+{% endblock title %}
+
+{% block head %}
+<style>
+    body {
+  background-color:  #eee;
+}
+.title {
+
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+
+.card-block {
+    font-size: 1em;
+    position: relative;
+    margin: 0;
+    padding: 1em;
+    border: none;
+    border-top: 1px solid rgba(34, 36, 38, .1);
+    box-shadow: none;
+
+}
+.card {
+    font-size: 1em;
+    overflow: hidden;
+    padding: 5;
+    border: none;
+    border-radius: .28571429rem;
+    box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+    margin-top:20px;
+}
+
+.carousel-indicators li {
+    border-radius: 12px;
+    width: 12px;
+    height: 12px;
+    background-color: #404040;
+}
+.carousel-indicators li {
+    border-radius: 12px;
+    width: 12px;
+    height: 12px;
+    background-color: #404040;
+}
+.carousel-indicators .active {
+    background-color: white;
+    max-width: 12px;
+    margin: 0 3px;
+    height: 12px;
+}
+.carousel-control-prev-icon {
+ background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+}
+
+.carousel-control-next-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+}
+ lex-direction: column;
+}
+
+.btn {
+  margin-top: auto;
+}
+</style>
+{% endblock head %}
+
+{% block body %}
+
+
+
+{% for post in post %}
+<section style="background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSl8y9cOC9b0nMmrRTmUXpQ5GkAoGPStvl2HQ&usqp=CAU) center / cover no-repeat;">
+<div class="container" style="background:white;">
+
+        <div class="row d-flex justify-content-center">
+
+            <div class="col-md-10">
+
+                <div class="card p-3  py-4">
+<div class="container py-3" data-aos="fade-right">
+
+  <!-- Card Start -->
+  <div class="card">
+    <div class="row ">
+
+      <div class="col-md-7 px-3">
+        <div class="card-block px-6">
+            <h4 class="card-title my-2 mx-2"><p style="font-family:garamond,serif;font-size:45px;text-decoration: underline;">{{ post.title }}</p></h4>
+          <h5 class="card-title my-2 mx-2"><p style="font-family:garamond,serif;font-size:30px;text-decoration: underline;">{{ post.title_tag }}</p></h5>
+
+        </div>
+          <hr>
+          <div class="row my-2 mx-2">
+                                            <div class="col">
+                                                <li><label>Author:</label></li>
+                                            </div>
+                                            <div class="col">
+                                                {{ post.author }}
+                                            </div>
+                                            <div class="col">
+                                                <li><label>Posted on:</label></li>
+                                            </div>
+                                            <div class="col">
+                                                {{ post.post_date }}
+                                            </div>
+                                        </div>
+          <div class="row my-2 mx-2">
+                                            <div class="col">
+                                                <li><label>Category:</label></li>
+                                            </div>
+                                            <div class="col">
+                                                {{ post.category }}
+                                            </div>
+                                            <div class="col">
+                                                <li><label>Views:</label></li>
+                                            </div>
+                                            <div class="col">
+                                                {{ post.views }}
+                                            </div>
+
+          </div>
+          <div class="row my-2 mx-2">
+                                            <div class="col">
+                                                <li><label>Likes:</label></li>
+                                            </div>
+                                            <div class="col">
+                                                {{ post.total_likes }}
+                                                {% if request.user.is_authenticated %}
+                                                <form action="like_page" method="post">{% csrf_token %}
+
+        <button class="btn btn-secondary" name="like" value="{{ post.id }} {{ request.user }}"><a role="button">like - {{ post.total_likes}}</a></button>
+            </form>{% endif %}
+                                            </div>
+                                            <div class="col">
+                                                <li><label>updated on:</label></li>
+                                            </div>
+                                            <div class="col">
+                                                {{ post.post_update }}
+                                            </div>
+
+          </div>
+      </div>
+
+
+      <!-- Carousel start -->
+      <div class="col-md-5 my-3">
+        <div id="CarouselTest" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#CarouselTest" data-slide-to="0" class="active"></li>
+            <li data-target="#CarouselTest" data-slide-to="1"></li>
+            <li data-target="#CarouselTest" data-slide-to="2"></li>
+
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img class="d-block img-fluid" src="{{post.image.url}}" alt="" >
+            </div>
+
+
+
+          </div>
+        </div>
+      </div>
+      <!-- End of carousel -->
+    </div>
+  </div>
+  <!-- End of card -->
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div></div></div></div>
+<div class="container mt-5">
+
+        <div class="row d-flex justify-content-center">
+
+            <div class="col-md-10">
+
+                <div class="card p-3  py-4">
+
+                {{ post.body|safe }}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div></div></div></div>
+<div class="container mt-5">
+
+        <div class="row d-flex justify-content-center">
+
+            <div class="col-md-10">
+
+                <div class="card p-3  py-4">
+
+                    <div class="card">
+    <div class="row ">
+<div class="col-md-7 px-3">
+        <div class="card-block px-6">
+            <h4 class="card-title my-2 mx-2"><pre style="font-family:garamond,serif;font-size:45px;text-decoration: underline;">Comments:</pre></h4>
+        </div>
+</div></div></div>
+<div class="container py-3" data-aos="fade-right">
+    {% if request.user.is_authenticated %}
+<form method="post" action="comment_add">{% csrf_token %}
+    <div class="card">
+    <div class="row ">
+<div class="col">
+        <div class="card-block px-6">
+            <h4>Leave a comment</h4>
+                        <label for="message">Message</label>
+                        <textarea name="comment" id="" class="form-control" style="background-color: white;"></textarea>
+        </div>
+    <div class="form-group">
+                        <p class="text-secondary">Note: <a href="#" class="alert-link">Bloggers United</a> account holder, please leave a comment revelantly; it should keep you and your account safe.......... Thanks!!!!</p>
+                    </div>
+    <div class="form-group">
+        <input hidden type="text" name="slug_slug" id="slug6" value="{{ post.slug }}">
+                  <input hidden type="text" name="slug" id="post_id6" value="{{ post.id }}">
+                        <button type="submit" id="post" class="btn">Post Comment</button>
+                    </div>
+</div></div></div>
+    </form>
+    {% endif %}
+    {% if edit == True%}
+    {% if request.user.is_authenticated %}
+    {% for comment in comment_edit %}
+<form method="post" action="comment_update">{% csrf_token %}
+    <div class="card">
+    <div class="row ">
+<div class="col">
+        <div class="card-block px-6">
+            <h4>Update the comment</h4>
+                        <label for="message">Message</label>
+                        <textarea name="comment_edit_body" id="45" class="form-control" style="background-color: white;">{{comment.body}}</textarea>
+        </div>
+    <div class="form-group">
+                        <p class="text-secondary">Note: <a href="#" class="alert-link">Bloggers United</a> account holder, please leave a comment revelantly; it should keep you and your account safe.......... Thanks!!!!</p>
+                    </div>
+    <div class="form-group">
+        <input hidden type="text" name="comment_id" id="id5" value="{{ comment.id }}">
+                  <input hidden type="text" name="slug_slug" id="slug25" value="{{ post.slug }}">
+                  <input hidden type="text" name="slug" id="post_id25" value="{{ post.id }}">
+                        <button type="submit" id="pos0" class="btn">Update</button>
+                    </div>
+</div></div></div>
+    </form>
+    {% endfor %}
+    {% endif %}
+    {% endif %}
+
+
+
+
+{% for comment in comment %}
+  <!-- Card Start -->
+  <div class="card">
+    <div class="row ">
+<div class="col-md-4 my-3">
+        <div id="CarouselTest4" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#CarouselTest" data-slide-to="0" class="active"></li>
+            <li data-target="#CarouselTest" data-slide-to="1"></li>
+            <li data-target="#CarouselTest" data-slide-to="2"></li>
+
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img class="d-block rounded-circle" src="{{comment.profile.profile_pic.url}}" alt="" height="200" width="300">
+            </div>
+
+
+
+          </div>
+        </div>
+      </div>
+      <div class="col-md-7 px-3">
+        <div class="card-block px-6">
+            <h4 class="card-title my-2 mx-2"><p style="font-family:garamond,serif;font-size:45px;text-decoration: underline;">{{ comment.name }}</p></h4>
+          <h1 class="card-title my-2 mx-2"><p style="font-family:garamond,serif;font-size:15px;">posted on - {{ comment.date }}</p></h1>
+            <h1 class="card-title my-2 mx-2"><p style="font-family:garamond,serif;font-size:15px;;">updated on - {{ comment.updated_date }}</p></h1>
+            <p class="card-text my-2 mx-2" style = "font-family:garamond,serif;font-size:25px;">
+            {{comment.body}}
+          </p>
+
+        </div>{% if request.user == comment.name%}
+          <div class="row my-2 mx-2">
+              <form method="post" action="comment_edit">{% csrf_token %}
+                      <input hidden type="text" id="comment_id8" name="commentid" value="{{ comment.id}}">
+                      <input hidden type="text" id="comment_body8" name="comment_body" value="{{ comment.body}}">
+                      <input hidden type="text" id="blog_slug8" name="post" value="{{ comment.blog.id }}">
+                      <input hidden type="text" id="use8" name="user" value="{{ comment.name }}">
+<!--                      <button type="submit"><a>Edit</a></button>-->
+
+                    <button style="background: white;
+    border: white;"><a class="link-grey">Edit</a></button>
+                    </form>
+
+
+          </div>
+          {% endif%}
+          <div class="row my-2 mx-2">
+                                    <form method="post" action="comment_delete">{% csrf_token %}
+                      <input hidden type="text" id="comment_id_8r" name="comment_id_r" value="{{ comment.id}}">
+                      <input hidden type="text" id="blog_slug_8r" name="post_id_r" value="{{ comment.blog.id }}">
+<!--                      <button type="submit"><a>Edit</a></button>-->
+
+
+
+                    <button style="background: white;
+    border: white;"><a class="link-grey">Remove</a></button>
+                    </form>
+
+
+      </div>
+
+
+      <!-- Carousel start -->
+
+      <!-- End of carousel -->
+    </div>
+  </div>
+</div>
+     {% endfor %}               <!-- End of card -->
+
+
+</div>
+            </div></div></div>
+</div></section>
+{% endfor %}
+{% endblock %}

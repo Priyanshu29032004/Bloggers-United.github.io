@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}
+    edit
+{% endblock title %}
+{% block body %}
+<section style="background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1vJyOUwnjwV0plX0MXY6b16rd45hGSQEzjA&usqp=CAU) center / cover no-repeat;">
+<div class="container" style="background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1vJyOUwnjwV0plX0MXY6b16rd45hGSQEzjA&usqp=CAU) center / cover no-repeat;"
+     >
+    <div class="col-md-10">
+    <h4 class="card-title my-2 mx-2"><p style="font-family:garamond,serif;font-size:45px;text-decoration: underline;">Update your Blog:</p></h4>
+    </div>
+    <div class="row">
+        <div class="col-2">
+        </div>
+        <div class="col">
+
+            <div class="form-controls">
+        <form method="Post" enctype="multipart/form-data" novalidate>
+            {% csrf_token %}
+             {{ form.media }}
+            {{ form.as_p }}
+
+            <button class="btn btn-dark text-start"
+            type="submit"
+            style="background: var(--bs-teal);
+                   width: 72.0375px;
+                   height: 38px;
+                   border-radius: 21px;">
+
+Save
+
+                    </button>
+
+
+
+        </form>
+
+        </div>
+        <div class="col-2">
+        </div>
+
+
+        </div>
+    </div></div>
+    </section>
+{% endblock %}

@@ -1,0 +1,182 @@
+{% extends 'base.html' %}
+{% block title %}
+    about
+{% endblock title %}
+{% load static %}
+{% block body %}
+<section style="background: url(data:image/jpeg;base64,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) center / cover no-repeat;">
+    <header data-aos="fade-right" class="header-blue">
+        <div class="container hero">
+            <div class="row">
+                <div class="col-12 col-lg-6 col-xl-5 offset-xl-1">
+                    <h1>The revolution is here at Bloggers United</h1>
+                    <p>
+                        Mauris egestas tellus non ex condimentum, ac ullamcorper sapien dictum. Nam consequat neque quis sapien viverra convallis. In non tempus lorem.
+                    </p>
+                    <button class="btn btn-light btn-lg action-button" type="button">Learn More</button>
+                </div>
+                <div class="col-md-5 col-lg-5 offset-lg-1 offset-xl-0 d-none d-lg-block phone-holder"></div>
+                <img class="d-block img-fluid" width="300" src="data:image/jpeg;base64,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">
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-center" data-aos="fade-right"><p style="font-family:garamond,serif;font-size:45px;">We are the Bloggers United!!!!!</p></h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p class="lead text-center" data-aos="fade-left">
+                    When you have a great story about how your product or service was built to change lives, share it. T
+                    he About Us page is a great place for it to live, too. Good stories humanize your brand, providing
+                    context and meaning for your product. What’s more, good stories are sticky — which means people are more
+                    likely to connect with them and pass them on.
+                </p>
+                <p class="lead text-center" data-aos="fade-right">
+                    Yellow Leaf Hammocks tells users about its product by describing how the hammocks empower artisan weavers
+                    and their families. The company breaks down different pieces of the story into sections that combine words
+                    and easily digestible graphics, painting a picture instead of big chunks of text. Yellow Leaf is clear about
+                    why its brand is different: "Not a Charity," the page reads. And then: "This is the basis for a brighter future,
+                    built on a hand up, not a handout."
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <section class="team-clean">
+        <div class="container">
+            <div class="intro">
+                <h2 class="text-center">Team</h2>
+                <p class="text-center">
+                    Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae.
+                </p>
+            </div>
+            <div class="row people">
+                <div class="col-md-6 col-lg-4 item">
+                    <img class="rounded-circle" src="{% static 'assets/img/1.png' %}">
+                    <h3 class="name">Ben Johnson</h3>
+                    <p class="title">
+                        Musician
+                    </p>
+                    <p class="description">
+                        Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, et interdum justo suscipit id. Etiam dictum feugiat tellus, a semper massa.
+                    </p>
+                    <div class="social">
+                        <a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 item">
+                    <img class="rounded-circle" src="{% static 'assets/img/2.png' %}">
+                    <h3 class="name">Emily Clark</h3>
+                    <p class="title">
+                        Artist
+                    </p>
+                    <p class="description">
+                        Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, et interdum justo suscipit id. Etiam dictum feugiat tellus, a semper massa.
+                    </p>
+                    <div class="social">
+                        <a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 item">
+                    <img class="rounded-circle" src="{% static 'assets/img/3.png' %}">
+                    <h3 class="name">Carl Kent</h3>
+                    <p class="title">
+                        Stylist
+                    </p>
+                    <p class="description">
+                        Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, et interdum justo suscipit id. Etiam dictum feugiat tellus, a semper massa.
+                    </p>
+                    <div class="social">
+                        <a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="td-form">
+        <div class="row td-form-wrapper">
+            <div class="col td-glass">
+                <form class="td-form-wrapper" action="contact_us" method="post">{% csrf_token %}
+                    <h1 class="text-center">Contact Us</h1>
+                    <div class="form-group mb-3">
+                        <div class="col-md-12">
+                            <label class="form-label" for="name">Your Name *</label>
+                            <div class="d-flex">
+                                <i class="icon ion-person align-self-center"></i>
+                                <input class="form-control d-flex"
+                                       type="text"
+                                       autocomplete="off"
+                                       name="name"
+                                       required=""
+                                       placeholder="Treedax Services">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <div class="col-md-12">
+                            <label class="form-label" for="email">Email Address *</label>
+                            <div class="d-flex">
+                                <i class="icon ion-ios-email align-self-center"></i>
+                                <input class="form-control"
+                                       type="text"
+                                       autocomplete="off"
+                                       name="email"
+                                       required=""
+                                       placeholder="services@treedax.com"
+                                       inputmode="email">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <div class="col-md-12">
+                            <label class="form-label" for="phone">Phone (optional)</label>
+                            <div class="d-flex td-input-container">
+                                <i class="icon ion-ios-telephone align-self-center"></i>
+                                <input class="form-control"
+                                       type="text"
+                                       autocomplete="off"
+                                       placeholder="555-555-1212"
+                                       name="phone"
+                                       inputmode="tel">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <div class="col-md-12">
+                            <label class="form-label" for="subject">Subject: *</label>
+                            <div class="d-flex td-input-container">
+                                <i class="icon ion-ios-information align-self-center"></i>
+                                <input class="form-control"
+                                       type="text"
+                                       autocomplete="off"
+                                       placeholder="I really like this form, thanks!"
+                                       name="subject"
+                                       required="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <div class="col-md-12">
+                            <label class="form-label" for="message">Message Details *</label>
+                            <div class="d-flex td-input-container">
+                                <i class="icon ion-android-create align-self-center"></i><textarea class="form-control"
+          placeholder="Add meaningful message here"
+          name="message"
+          rows="6"
+          cols="50"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <div class="col-md-12">
+                            <button class="btn btn-dark float-end" type="submit">Send us your message!</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock body %}
