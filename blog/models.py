@@ -1,9 +1,9 @@
 from ckeditor.fields import RichTextField
 from django.db import models
-from tinymce.models import HTMLField
-from django.shortcuts import redirect, reverse
+
+from django.shortcuts import reverse
 from django.contrib.auth.models import User
-from datetime import datetime, date
+
 # Create your models here.
 
 class profile(models.Model):
