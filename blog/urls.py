@@ -34,4 +34,4 @@ urlpatterns = [
     path('<str:slug>', views.blog_result, name="blog_result"),
     path("<int:pk>", Edit_Blog.as_view(), name="edit_blog"),
 
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
