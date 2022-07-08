@@ -226,6 +226,8 @@ def handle_login(request):
         else:
             messages.warning(request, "Warning, You have entered something wrong")
             return redirect("blog")
+    else:
+        return redirect("blog")
 
     
 def handle_logout(request):
