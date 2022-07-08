@@ -220,10 +220,12 @@ def handle_login(request):
             login(request, user)
             messages.success(request, "You are Successfully logged in")
             return redirect("blogging")
+        elif user is None:
+            messages.warning(request, "Warning, You have entered something wrong")
+            return redirect("blog")
         else:
             messages.warning(request, "Warning, You have entered something wrong")
             return redirect("blog")
-        
 
     
 def handle_logout(request):
