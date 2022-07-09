@@ -38,7 +38,7 @@ class blogging(CreateView):
     def form_valid(self, form):
         slug=form.cleaned_data["title"]
         form.instance.slug=slug
-        form.instance.post_date=datetime.timezone.now()
+        form.instance.post_date=datetime.timezone.utc
         form.instance.author=self.request.user
         return super().form_valid(form)
 
