@@ -296,7 +296,7 @@ class Edit_Blog(UpdateView):
     def form_valid(self, form):
         slug = form.cleaned_data["title"]
         form.instance.slug = slug
-        form.instance.post_update = datetime.timezone.now()
+        form.instance.post_update = datetime.datetime.now()
         return super().form_valid(form)
 
 
