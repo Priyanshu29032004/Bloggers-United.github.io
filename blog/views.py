@@ -467,7 +467,10 @@ def advance_search(request):
 
 def my_blogs(request):
     cu_us=request.POST.get("user_name_blogs")
-    posts=Post.objects.filter(author=cu_us)
+    if cu_us=="":
+        posts=[]
+    else:
+        posts=Post.objects.filter(author=cu_us)
     content={"posts":posts}
     return render(request, "myblogs.html", content)
 
