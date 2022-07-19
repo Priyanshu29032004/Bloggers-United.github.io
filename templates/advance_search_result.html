@@ -244,9 +244,16 @@ Make sure that all words are spelled correctly.</li>
             <p class="card-text my-2 mx-2" style = "font-family:georgia,garamond,serif;font-size:16px;font-style:italic;">
             {{user.Bio|striptags|truncatewords:"40"}}
                 {% if request.user.is_authenticated %}
-                <input hidden name="account_id" value="{{user.id}}">
-                <a href="see_account">see account</a>
+                <form method="post" action="see_account" enctype= multipart/form-data>{% csrf_token %}
+                <input name="Ac" value="{{ user.id }}">
+
+                <button type="submit" style="background-color: white;
+                border: white;"><p style="color:blue;">see account</p></button>
+              </form>
                 {% else %}
+                <a href="#">Log in to See the Account!!!</a>
+              
+                {% endif %}
                 <a href="#">Log in to See the Account!!!</a>
                 {% endif %}
           </p>
