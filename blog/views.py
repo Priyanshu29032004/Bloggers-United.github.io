@@ -467,11 +467,15 @@ def advance_search(request):
 
 def my_blogs(request):
     cu_us=request.POST.get("user_name_blogs")
-    if cu_us=="":
-        posts=[]
+    
+    
+    if cu_us=="" or cu_us is None:
+        posts=Post.objects.filter(author=request.user.id)
     else:
+
         posts=Post.objects.filter(author=cu_us)
-    content={"posts":posts}
+    content={"posts":posts,
+    "blog_author":cu_us}
     return render(request, "myblogs.html", content)
 
 def ecommerce(request):
