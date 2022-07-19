@@ -6,7 +6,9 @@ my blogs
 {% block body %}
 <section style="background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8sxRNeQfGdokKjX1IuwHlnKEHG2XB5BGOEQ5TL51fUkl4vJffn863pGdI6pUOpj0n7Ms&usqp=CAU) center / cover no-repeat;">
 <div class="container">
+        {% if posts|length > 1 %}
 {% for posts in posts %}
+        {% endfor %}
         <div class="row d-flex justify-content-center">
 
             <div class="col-md-10">
@@ -18,15 +20,19 @@ my blogs
                     </div>
                     {% elif %}
                     <div class="col">
-                      <h1>No Blogs:</h1>
-                  </div>
-                    {% else %}
-                    <div class="col">
                       <h1>{{ posts.author }} Blogs:</h1>
                   </div>
-                  {% endif %}
+                    {% else %}
+                    {% endif %}
+                        {% endif %}
+                        {% if posts|length < 1 %}
+                        <div class="col">
+                      <h1>No Blogs:</h1>
+                  </div>
+                        {% endif %}
                   
-{% endfor %}
+                  
+
 
 
 {% for posts in posts %}
