@@ -466,7 +466,7 @@ def advance_search(request):
     return render(request, "advance_search.html", con)
 
 def my_blogs(request):
-    cu_us=request.user
+    cu_us=request.POST.get("user_name_blogs")
     posts=Post.objects.filter(author=cu_us)
     content={"posts":posts}
     return render(request, "myblogs.html", content)
@@ -688,3 +688,23 @@ def advance_search_users(request):
     }
 
     return render(request, "advance_search_result.html", con)
+def see_account(request):
+    cu_us_id=request.POST.get("Ac")
+    print(cu_us_id)
+
+    all=User.objects.filter(pk=cu_us_id)
+    print(all)
+
+    # # last_name=User.last_name
+    user=profile.objects.filter(user_id=cu_us_id)
+    print(user)
+
+
+    post=Post.objects.filter(author_id=cu_us_id)
+    print(post)
+
+    pro_con={ "user": user,
+            "all":all,
+            "post":post
+    }
+    return render(request, "account.html", pro_con)
