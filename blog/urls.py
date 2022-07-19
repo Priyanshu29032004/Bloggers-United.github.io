@@ -16,6 +16,7 @@ urlpatterns = [
     path("blogging", blogging.as_view() , name="blogging"),
     path("account", views.account, name="account"),
     path("register", views.register, name="register"),
+    path("see_account", views.see_account, name="see_account"),
     path("comment_add", views.comment_add, name="comment_add"),
     path("comment_edit", views.comment_edit, name="comment_edit"),
     path("comment_update", views.comment_update, name="comment_update"),
