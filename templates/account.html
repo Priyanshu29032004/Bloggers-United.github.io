@@ -218,7 +218,7 @@
 
                                                        <form method="post" action="my_blogs">{% csrf_token %}
                                                         <li>
-                                                            <input name="user_name_blogs" value="{{post.author.id}}">
+                                                            <input hidden name="user_name_blogs" value="{{post.author.id}}">
                                                             <button type="submit"><p style = "font-family:georgia,garamond,serif;font-size:16px;font-style:italic;"><a role="button">Show all</a></p>
                                                             </button>
                                                             </li>
