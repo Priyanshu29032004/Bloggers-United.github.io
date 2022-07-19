@@ -6,24 +6,27 @@ my blogs
 {% block body %}
 <section style="background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8sxRNeQfGdokKjX1IuwHlnKEHG2XB5BGOEQ5TL51fUkl4vJffn863pGdI6pUOpj0n7Ms&usqp=CAU) center / cover no-repeat;">
 <div class="container">
-
+{% for posts in posts %}
         <div class="row d-flex justify-content-center">
 
             <div class="col-md-10">
 
                 <div class="row">
+                  {% if request.user == posts.author %}
                     <div class="col">
                         <h1>Your Blogs:</h1>
                     </div>
-
-
-
-                </div>
-                <hr size="5">
-                <hr size="4">
-
-
-
+                    {% elif %}
+                    <div class="col">
+                      <h1>No Blogs:</h1>
+                  </div>
+                    {% else %}
+                    <div class="col">
+                      <h1>{{ posts.author }} Blogs:</h1>
+                  </div>
+                  {% endif %}
+                  
+{% endfor %}
 
 
 {% for posts in posts %}
