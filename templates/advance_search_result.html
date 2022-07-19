@@ -245,7 +245,7 @@ Make sure that all words are spelled correctly.</li>
             {{user.Bio|striptags|truncatewords:"40"}}
                 {% if request.user.is_authenticated %}
                 <form method="post" action="see_account" enctype= multipart/form-data>{% csrf_token %}
-                <input name="Ac" value="{{ user.id }}">
+                <input hidden name="Ac" value="{{ user.id }}">
 
                 <button type="submit" style="background-color: white;
                 border: white;"><p style="color:blue;">see account</p></button>
